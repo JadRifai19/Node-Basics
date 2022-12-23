@@ -120,7 +120,7 @@ function quit(){
  */
 
 function help(){
-  console.log('exit, quit, hello, hello')
+  console.log('exit, quit, hello, hello, list, add, remove')
 }
 
 let list = ["task1", "task2"];
