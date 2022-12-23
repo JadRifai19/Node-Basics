@@ -54,6 +54,18 @@ function onDataReceived(text) {
     add(text);
   }
 
+  else if (text === "remove\n"){
+  removeLastTask();
+  }
+
+  else if(text === "remove 1\n"){
+  removeFirstTask()
+  }
+
+  else if(text === "remove 2\n"){
+  removeSecondTask();
+  }
+
   else{
     unknownCommand(text);
   }
@@ -128,6 +140,33 @@ function add(text) {
     const argument = words.slice(1).join(' ');
     list.push(argument);
   }
+}
+
+
+/**
+ * Remove last task
+ * * @returns {void}
+ */
+ function removeLastTask(){
+  list.pop();
+}
+
+/**
+ * Remove first task
+ *
+ * @returns {void}
+ */
+function removeFirstTask(){
+  list.shift();
+}
+
+/**
+ * Remove second task
+ *
+ * @returns {void}
+ */
+function removeSecondTask(){
+  list.splice(1,1);
 }
 
 
