@@ -37,8 +37,8 @@ function onDataReceived(text) {
   if (text === 'quit\n' || text === 'exit\n' )  {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(text === 'hello\n' || text.split(" ")[0] === 'hello'){
+    hello(text);
   }
   else if(text === 'help\n'){
     help();
@@ -66,10 +66,19 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
-}
+function hello(data){
+  if(data === 'hello\n') {
+    console.log("Hello!")
+    return
+  }
+  data = data.replace('\n', '').trim();
+  let allWords = data.split(' ');
 
+  if (allWords[0] === 'hello') {
+    let userName = allWords.slice(1).join(' ');
+    console.log(`Hello ${userName}!` );
+  }
+}
 
 /**
  * Exits the application
