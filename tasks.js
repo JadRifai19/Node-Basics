@@ -54,16 +54,8 @@ function onDataReceived(text) {
     add(text);
   }
 
-  else if (text === "remove\n"){
-  removeLastTask();
-  }
-
-  else if(text === "remove 1\n"){
-  removeFirstTask()
-  }
-
-  else if(text === "remove 2\n"){
-  removeSecondTask();
+  else if (text.split(" ")[0] === "remove" || text === "remove\n") {
+    removeTask(text);
   }
 
   else{
@@ -144,29 +136,27 @@ function add(text) {
 
 
 /**
- * Remove last task
- * * @returns {void}
- */
- function removeLastTask(){
-  list.pop();
-}
-
-/**
- * Remove first task
- *
+ * Remove tasks
+ * 
  * @returns {void}
  */
-function removeFirstTask(){
-  list.shift();
+ function removeTask(text){
+  if(text === "remove/n"){
+    list.pop
+    return
 }
 
-/**
- * Remove second task
- *
- * @returns {void}
- */
-function removeSecondTask(){
-  list.splice(1,1);
+text = text.replace('\n', '').trim();
+  const words = text.split(' ');
+  if (words[0] === 'remove') {
+    const a = words.slice(1).join(' ');
+    list.splice(`${a - 1}`, 1);
+    if (a > list.length) {
+      console.log("You enter a number does not exist");
+    } else {
+      list.splice(`${a - 1}`, 1);
+    }
+  }
 }
 
 
