@@ -37,12 +37,19 @@ function onDataReceived(text) {
   if (text === 'quit\n' || text === 'exit\n' )  {
     quit();
   }
+
   else if(text === 'hello\n' || text.split(" ")[0] === 'hello'){
     hello(text);
   }
+
   else if(text === 'help\n'){
     help();
   }
+
+  else if(text === "list\n"){
+    showList(text);
+  }
+
   else{
     unknownCommand(text);
   }
@@ -80,6 +87,7 @@ function hello(data){
   }
 }
 
+
 /**
  * Exits the application
  *
@@ -89,6 +97,7 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 
+
 }
 /**
  * lists all the possible commands
@@ -97,6 +106,15 @@ function quit(){
 function help(){
   console.log('exit, quit, hello, hello')
 }
+
+let list = ["task1", "task2"];
+
+function showList(text) {
+  for (let i = 0; i < list.length; i++) {
+    console.log(`${i + 1}- ${list[i]}`);
+  }
+}
+
 
 // The following line starts the application
 startApp("Jad Rifaii")
