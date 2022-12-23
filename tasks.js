@@ -95,7 +95,7 @@ function quit(){
  */
 
 function help(){
-  console.log('exit, quit, hello')
+  console.log('exit, quit, hello, hello')
 }
 
 // The following line starts the application
